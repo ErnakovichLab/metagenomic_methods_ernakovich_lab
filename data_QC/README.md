@@ -1,5 +1,5 @@
 # Data Cleaning Workflow
-Placeholder for inforamtion on the cleaning workflow
+Placeholder for information on the cleaning workflow
 
 Current workflow:
  1. Assess initial quality with `fastqc`
