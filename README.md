@@ -11,6 +11,7 @@ conda environment.**
 ``` bash
 git clone git@github.com:ErnakovichLab/metagenomic_methods_ernakovich_lab.git
 cd metagenomic_methods_ernakovich_lab
+module load anaconda/colsa # only use this if working on Premise HPC system
 conda env create -f metagenomic_methods_ernakovich_lab.yml --force
 conda activate metagenomic_methods_ernakovich_lab_vX
 ```
