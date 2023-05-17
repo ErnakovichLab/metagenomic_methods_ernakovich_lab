@@ -1,0 +1,190 @@
+# 09/23/2022
+# Created by Hannah Holland-Moritz
+# Conda on premise is still down, in light of this I will be creating conda environments with metagenomcis tools 
+# in the shared ernakovich folder. These are the installation notes for those tools. 
+
+# Multiqc
+# a tool for making summaries of outputs from a number of genomic tools. 
+
+1) First I activated the local conda environment
+`source /mnt/home/ernakovich/shared/software/miniconda3/bin/activate`
+
+2) Then I created a new conda environment for multiqc in the shared miniconda3
+directory by specifying the environment path:
+
+`conda create -y -p /mnt/home/ernakovich/shared/software/miniconda3/envs/multiqc python=3.6.6`
+
+3) Then I activated then environment:
+`conda activate /mnt/home/ernakovich/shared/software/miniconda3/envs/multiqc`
+
+4) Then I configured the channels in the correct order:
+`conda config --add channels defaults`
+`conda config --add channels bioconda`
+`conda config --add channels conda-forge`
+
+5) Finally I installed multiqc
+`conda install -c bioconda multiqc`
+
+6) To use multiqc and get the help:
+module purge
+source /mnt/home/ernakovich/shared/software/miniconda3/bin/activate
+conda activate /mnt/home/ernakovich/shared/software/miniconda3/envs/multiqc
+multiqc --help
+
+# Fastqc
+# Fastqc is a tool for assesing the quality of fastq files. 
+
+1) First I activated the local conda environment
+`source /mnt/home/ernakovich/shared/software/miniconda3/bin/activate`
+
+2) Then I created a new conda environment for multiqc in the shared miniconda3
+directory by specifying the environment path:
+
+`conda create -y -p /mnt/home/ernakovich/shared/software/miniconda3/envs/fastqc python=3.6.6`
+
+3) Then I activated then environment:
+`conda activate /mnt/home/ernakovich/shared/software/miniconda3/envs/fastqc`
+
+4) Then I configured the channels in the correct order:
+`conda config --add channels defaults`
+`conda config --add channels bioconda`
+`conda config --add channels conda-forge`
+
+5) Finally I installed fastqc
+`conda install -c bioconda fastqc`
+
+6) To use fastqc and get the help:
+module purge
+source /mnt/home/ernakovich/shared/software/miniconda3/bin/activate
+conda activate /mnt/home/ernakovich/shared/software/miniconda3/envs/fastqc
+fastqc --help
+
+# BBduk
+# BBduk/ is one of a suite of tools in the bbtools package. BBduk is used for cleaning and filtering 
+# fastq data
+
+1) First I activated the local conda environment
+`source /mnt/home/ernakovich/shared/software/miniconda3/bin/activate`
+
+2) Then I created a new conda environment for bbtools in the shared miniconda3
+directory by specifying the environment path:
+
+`conda create -y -p /mnt/home/ernakovich/shared/software/miniconda3/envs/bbtools python=3.6.6`
+
+3) Then I activated then environment:
+`conda activate /mnt/home/ernakovich/shared/software/miniconda3/envs/bbtools`
+
+4) Then I configured the channels in the correct order:
+`conda config --add channels defaults`
+`conda config --add channels bioconda`
+`conda config --add channels conda-forge`
+
+5) Finally I installed bbduk (the package is called bbmap for historical reasons)
+`conda install -c bioconda bbmap`
+
+6) To use bbduk and get the help:
+module purge
+source /mnt/home/ernakovich/shared/software/miniconda3/bin/activate
+conda activate /mnt/home/ernakovich/shared/software/miniconda3/envs/bbtools
+bbduk.sh -h
+
+
+# Cutadapt
+# Cutadapt can be used to remove adapters from fastq files
+
+1) First I activated the local conda environment
+`source /mnt/home/ernakovich/shared/software/miniconda3/bin/activate`
+
+2) Then I created a new conda environment for cutadapt in the shared miniconda3
+directory by specifying the environment path:
+
+`conda create -y -p /mnt/home/ernakovich/shared/software/miniconda3/envs/cutadapt python=3.6.6`
+
+3) Then I activated then environment:
+`conda activate /mnt/home/ernakovich/shared/software/miniconda3/envs/cutadapt`
+
+4) Then I configured the channels in the correct order:
+`conda config --add channels defaults`
+`conda config --add channels bioconda`
+`conda config --add channels conda-forge`
+
+5) Finally I installed cutadapt
+`conda install -c bioconda cutadapt`
+
+6) To use cutadapt and get the help:
+module purge
+source /mnt/home/ernakovich/shared/software/miniconda3/bin/activate
+conda activate /mnt/home/ernakovich/shared/software/miniconda3/envs/cutadapt
+cutadapt --help
+
+
+# Phyloflash
+# Phyloflash is a tool that can be used to extract 18S/16S fragments from metagenomic data and compile
+# reports on the taxonomic composition based on those data. 
+
+1) First I activated the local conda environment
+`source /mnt/home/ernakovich/shared/software/miniconda3/bin/activate`
+
+2) Then I created a new conda environment for PhylFlash in the shared miniconda3
+directory by specifying the environment path:
+
+`conda create -y -p /mnt/home/ernakovich/shared/software/miniconda3/envs/phyloflash python=3.6.6`
+
+3) Then I activated then environment:
+`conda activate /mnt/home/ernakovich/shared/software/miniconda3/envs/phyloflash`
+
+4) Then I configured the channels in the correct order:
+`conda config --add channels defaults`
+`conda config --add channels bioconda`
+`conda config --add channels conda-forge`
+
+5) As recommended by the installation guide I set the channel priority to strict
+`conda config --set channel_priority strict`
+
+6) The solving failed for the typical installation, so in order to make it work I had to install mamba in the base environment:
+`conda deactivate # returned me to base environment`
+`conda install mamba -c conda-forge # install mamba`
+
+7) Finally I installed phyloflash and the optional dependency sortmerna 
+`mamba create -n pf phyloflash sortmerna=2.1b`
+
+8) Activate the environment and install databases
+
+# HANNAH START HERE (installing databases takes time)
+8) To use phyloflash and get the help:
+module purge
+source /mnt/home/ernakovich/shared/software/miniconda3/bin/activate
+conda activate /mnt/home/ernakovich/shared/software/miniconda3/envs/pf
+phyloflash.pl -help
+
+
+# Packages to add in the future
+
+
+# SingleM
+
+
+# Megahit
+
+# Spades
+
+# CoverM
+
+# metabat
+
+# Samtools
+
+# CheckM
+
+# RefineM
+
+# Galah (dereplication)
+
+
+# SingleM
+
+# Maxbin
+
+# DRAM
+
+# CONCOCT
