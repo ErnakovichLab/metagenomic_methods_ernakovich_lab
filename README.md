@@ -28,6 +28,16 @@ ln -s </mnt/home/ernakovich/shared/sequencing_data/path/to/raw_reads> raw_reads
 
 Large files or folders should also be added here as symlinks and to `.gitignore`.
 
+## How to update the conda environment with a new tool
+1. Go to https://anaconda.org and search for the tool you want to install. Once you find the tool's name, you know it's an anaconda package and can be added to the `metagenomic_methods_ernakovich_lab.yml` file
+2. Using a branch (and tracking changes) open the .yml file and add the name under the "dependencies:" section. If the tool is in a channel that's not listed in the channels, be sure to also add that channel (most tools we use will be in either conda-forge, bioconda, or defaults - please make sure to add the channel after conda-forge and bioconda, as the order may matter for many of the tools we use). 
+3. Save the yaml file and run the code below to update your conda environment. 
+``` bash
+deactivate;
+conda env update -f whatever.yml;
+source activate my_environment_name;
+```
+4.  If the update is successful and you are able to test and use the tool and think others will find it useful, add and commit your changes and push them to the repository for approval (see the github workflow section below for more information on how to do this).
 
 ## Git Workflow Instructions
 
