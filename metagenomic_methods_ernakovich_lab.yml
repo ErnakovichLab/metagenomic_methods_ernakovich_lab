@@ -9,3 +9,4 @@ dependencies:
   - multiqc
   - bbmap
   - cutadapt
+  - checkm2
