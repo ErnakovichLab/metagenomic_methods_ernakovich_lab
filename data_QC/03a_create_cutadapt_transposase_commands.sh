@@ -50,10 +50,10 @@ cd $OUTPUT_DIR
 
 # run the cutadapt command
 # NOTE: to use multiqc with output logs, make sure cutadapt command ends with filename
-#cutadapt -a $TN5_SEQ -a $TN5_RC -o $outfile1 -p $outfile2 $infile1 $infile2 -j $CORES > $logfile_name
+# quality = 20, min length = 50, nextseq-trim = 20 (for polyGs)
 cutadapt -a $TN5_SEQ -a $TN5_RC -A $TN5_SEQ -A $TN5_RC \
 -n 2 -a $UNIV_ADAPT -a $UNIV_ADAPT_RC -A $UNIV_ADAPT -A $UNIV_ADAPT_RC \
--m 50 -q 20 --nextseq-trim=20 \# quality = 20, min length = 50, nextseq-trim = 20 (for polyGs)
+-m 50 -q 20 --nextseq-trim=20 \
 -j $CORES -o $outfile1 -p $outfile2 $infile1*.fastq.gz $infile2*.fastq.gz > $logfile_name
 
 

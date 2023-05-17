@@ -12,7 +12,7 @@
 ## require more than 24 threads, set cpus-per-task to the 
 ## desired threadcount.  Leave this commented out for the
 ## default 24 threads.
-#SBATCH --cpus-per-task=1
+#SBATCH --cpus-per-task=4 # because we specified 4 cpus per cutadapt run
 
 ## This will specify that all threads for each task are on the same node
 #SBATCH -N 1
@@ -49,13 +49,14 @@ module purge
 module load anaconda/colsa
 conda activate metagenomic_methods_ernakovich_lab_v0.1
 
-## Let the user know what sample you're working on:
-echo "parsing sample: {SLURM_ARRAY_TASK_ID}"
-
 ## Get command file from commands.txt; #CHANGE ME
 COMMAND_FILE_PATH=/mnt/lz01/ernakovich/heh1030/test_metaG/00_cleaned_data/01_cutadapt_transposase_commands/commands.txt
 
 file=`head -n $SLURM_ARRAY_TASK_ID $COMMAND_FILE_PATH | tail -n 1`
+
+## Let the user know what sample you're working on:
+echo "Running sample"
+echo $file
 
 ##  Task calculation ##
 ## You should run some tests so that you can fill in the xxx's below ##
