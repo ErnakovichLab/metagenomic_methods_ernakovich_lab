@@ -12,10 +12,12 @@
 ## require more than 24 threads, set cpus-per-task to the 
 ## desired threadcount.  Leave this commented out for the
 ## default 24 threads.
-#SBATCH --cpus-per-task=4 # because we specified 4 cpus per cutadapt run
+#SBATCH --cpus-per-task=8
 
 ## This will specify that all threads for each task are on the same node
 #SBATCH -N 1
+
+
 
 ## You will need to specify a minimum amount of memory in the
 ## following situaitons:
@@ -36,8 +38,8 @@
 
 ## Normal Slurm options
 ## SBATCH -p shared # for partition, leave blank
-#SBATCH --job-name="Cutadapt"
-#SBATCH --output="03_cutadapt-%A_%a.output" # %A = jobid; %a = array index
+#SBATCH --job-name="RunningFastqc"
+#SBATCH --output="04_Second_fastqc-%A_%a.output" # %A = jobid; %a = array index
 
 ## If we're running an array job (multiple jobs launched simultaneously)
 #SBATCH --array=1-2 # Job array index
@@ -46,32 +48,25 @@
 ## programs, though some are contained within the anaconda/colsa
 ## module.  Refer to http://premise.sr.unh.edu for more info.
 module purge
-module load anaconda/colsa
-conda activate metagenomic_methods_ernakovich_lab_v0.1
+#module load anaconda/colsa
+#conda activate metagenomic_methods_ernakovich_lab_v0.1
+module load linuxbrew/colsa
 
+## Let the user know what sample you're working on:
+echo "parsing sample: SRR09833"${SLURM_ARRAY_TASK_ID}
+
+# Setup Variables
+PROJ_DIR=~/test_metaG
+STAGE_DIR=$PROJ_DIR/00_cleaned_data
+COMMAND_DIR=$STAGE_DIR/02_fastqc_commands
 ## Get command file from commands.txt; #CHANGE ME
-COMMAND_FILE_PATH=/mnt/lz01/ernakovich/heh1030/test_metaG/00_cleaned_data/01_cutadapt_transposase_commands/commands.txt
+COMMAND_FILE_PATH=$COMMAND_DIR/commands.txt
 
 file=`head -n $SLURM_ARRAY_TASK_ID $COMMAND_FILE_PATH | tail -n 1`
 
-## Let the user know what sample you're working on:
-echo "Running sample"
-echo $file
-
-##  Task calculation ##
-## You should run some tests so that you can fill in the xxx's below ##
-
-# 1 task takes a maximum of 30 minutes to run
-# In a walltime of 3 hours, a minimum of 9 jobs can be run on a single core
-# I will start 1 batch of 9 tasks each (xxx jobs total in 2 hrs) to complete the 
-# xxx total jobs
-
-
-# Load modules/software
-module purge # first remove any modules already loaded on core
-module load anaconda/colsa
-conda activate metagenomic_methods_ernakovich_lab_v0.1
+## Instruct your program to make use of the number of desired threads.
+## As your job will be allocated an entire node, this should normally
+## be 24.
 
 # Run the shell script
 bash $file
-
