@@ -34,8 +34,8 @@ Large files or folders should also be added here as symlinks and to `.gitignore`
 3. Save the yaml file and run the code below to update your conda environment. 
 ``` bash
 deactivate;
-conda env update -f whatever.yml;
-source activate my_environment_name;
+conda env update -f metagenomic_methods_ernakovich_lab.yml;
+conda activate metagenomic_methods_ernakovich_lab_vX;
 ```
 4.  If the update is successful and you are able to test and use the tool and think others will find it useful, add and commit your changes and push them to the repository for approval (see the github workflow section below for more information on how to do this).
 
