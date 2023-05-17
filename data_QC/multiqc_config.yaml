@@ -1,16 +1,10 @@
 top_modules:
     - fastqc:
-        name: 'FastQC (sickle filtered)'
+        name: 'FastQC (cutadapt filtered)'
         info: 'This section of the report shows FastQC results after sickle filtering.'
         target: ''
         path_filters:
-            - '*qual_filt_fastqc.zip'
-    - fastqc:
-        name: 'FastQC (adapter trimmed)'
-        info: 'This section of the report shows FastQC results after adapter trimming.'
-        target: ''
-        path_filters:
-            - '*1_adapt_trim_fastqc.zip'
+            - '*trans_trim_fastqc.zip'
     - cutadapt:
         name: 'Cutadapt'
         info: 'This sectino of the report shows cutadapt log reports'
