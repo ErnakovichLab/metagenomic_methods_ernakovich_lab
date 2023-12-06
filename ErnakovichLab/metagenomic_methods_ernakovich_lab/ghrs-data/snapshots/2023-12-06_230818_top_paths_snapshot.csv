@@ -1,0 +1,6 @@
+url_path,views_total,views_unique
+/ErnakovichLab/metagenomic_methods_ernakovich_lab/blob/main/data_QC/README.md,4,2
+/ErnakovichLab/metagenomic_methods_ernakovich_lab/blob/main/data_QC/01a_create_fastqc_commands.sh,2,1
+/ErnakovichLab/metagenomic_methods_ernakovich_lab/blob/main/data_QC/01_run_fastqc_commands.slurm,2,1
+/ErnakovichLab/metagenomic_methods_ernakovich_lab/blob/main/data_QC/04_run_fastqc_commands.slurm,2,1
+/ErnakovichLab/metagenomic_methods_ernakovich_lab/tree/main,1,1
