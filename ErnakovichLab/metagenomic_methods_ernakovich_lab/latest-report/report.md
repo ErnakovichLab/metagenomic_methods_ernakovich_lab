@@ -1,5 +1,5 @@
 % Statistics for ErnakovichLab/metagenomic_methods_ernakovich_lab
-% Generated for [ErnakovichLab/metagenomic_methods_ernakovich_lab](https://github.com/ErnakovichLab/metagenomic_methods_ernakovich_lab) with [jgehrcke/github-repo-stats](https://github.com/jgehrcke/github-repo-stats) at 2026-11-16 02:28 UTC.
+% Generated for [ErnakovichLab/metagenomic_methods_ernakovich_lab](https://github.com/ErnakovichLab/metagenomic_methods_ernakovich_lab) with [jgehrcke/github-repo-stats](https://github.com/jgehrcke/github-repo-stats) at 2026-11-17 04:52 UTC.
 
 
 ## Views
@@ -82,7 +82,7 @@ Top 15 referrers: 01: `github.com`, 02: `Google`, 03: `forum.qiime2.org`, 04: `B
 
 <div id="chart_paths_top_n_alltime" class="full-width-chart"></div>
 
-Top 15 paths: 01: `/`, 02: `/tree/main/read_based`, 03: `/tree/main/data_QC`, 04: `/tree/main/assembly_based`, 05: `/blob/main/installation_notes.txt`, 06: `/blob/main/metagenomic_methods_ernakovich_lab.yml`, 07: `/blob/main/assembly_based/readme.md`, 08: `/blob/main/README.md`, 09: `/blob/main/data_QC/01_run_fastqc_commands.slurm`, 10: `/tree/main/.github/workflows`, 11: `/blob/main/data_QC/README.md`, 12: `/blob/main/data_QC/01a_create_fastqc_commands.sh`, 13: `/tree/main`, 14: `/commit/112d70edd39aef162c6d412d719eae34c363f3d3`, 15: `/blob/main/read_based/readme.md`
+Top 15 paths: 01: `/`, 02: `/tree/main/read_based`, 03: `/tree/main/data_QC`, 04: `/tree/main/assembly_based`, 05: `/blob/main/installation_notes.txt`, 06: `/blob/main/metagenomic_methods_ernakovich_lab.yml`, 07: `/blob/main/assembly_based/readme.md`, 08: `/blob/main/data_QC/01_run_fastqc_commands.slurm`, 09: `/tree/main`, 10: `/blob/main/data_QC/README.md`, 11: `/tree/main/.github/workflows`, 12: `/blob/main/README.md`, 13: `/blob/main/data_QC/01a_create_fastqc_commands.sh`, 14: `/issues`, 15: `/commits`
 
 
 <script type="text/javascript">
